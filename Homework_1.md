@@ -17,7 +17,7 @@
 ![MyFox_Searching](3.png)
 ### Data Storage
 >In this layer, the platform has MySQL based distributed relational database cluster MyFox and HBase based NoSQL storage cluster prom. In addition, other third-party modules are also included in the scope of storage layer.The increase of heterogeneous modules in the storage layer has brought challenges to the use of front-end products. For this reason, it has a general data middle layer, glider, to shield this effect. Glider provides restful interface with HTTP protocol. The data product can get the data it wants through a unique URL. Taobao data products choose MySQL's MyISAM engine as the underlying data storage engine. On this basis, in order to deal with the massive data, it designed the query agent layer MyFox of the distributed MySQL Cluster, which makes the partition transparent to the front-end application. At that time, the statistical data stored in MyFox has reached 10TB, accounting for more than 95% of the total data volume of data cube, and is growing by more than 600 million every day. These data are distributed approximately evenly to 20 MySQL nodes. When querying, the data is transparently served through MyFox. Not all of MyFox's 20 existing nodes are "equal.". Generally speaking, users of data products are more concerned with the data of "recent days". The earlier the data, the easier it is to be ignored. Therefore, for the sake of hardware cost, it divided the 20 nodes into "hot node" and "cold node"
-![MyFox_Node](3.png)
+![MyFox_Node](4.png)
 
 
 
